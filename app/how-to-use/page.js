@@ -1,6 +1,6 @@
 "use client";
 import { Accordion, Box, Button, Divider, Group, List, Paper, Stack, Text, Title } from '@mantine/core';
-import { IconCalculator, IconEraser, IconPhoto, IconPencil, IconArrowBack, IconArrowForward, IconTextSize, IconCircle, IconSquare, IconLine } from '@tabler/icons-react';
+import { IconCalculator, IconEraser, IconPhoto, IconPencil, IconArrowBack, IconArrowForward, IconTextSize,} from '@tabler/icons-react';
 
 export default function HowToUsePage() {
   return (

@@ -1,9 +1,9 @@
 "use client";
-import { ColorSwatch, Group, Slider, Select, ActionIcon, TextInput } from "@mantine/core";
+import { Slider, Select, ActionIcon, TextInput } from "@mantine/core";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { SWATCHES, THEMES, SHAPES } from "@/constants";
+import { SWATCHES, THEMES } from "@/constants";
 import { DndContext, useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 import {
