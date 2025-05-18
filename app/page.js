@@ -297,11 +297,11 @@ export default function Home() {
   // Ensure the expression doesn't already contain an equals sign
   let formattedExpression = expression;
   if (!formattedExpression.includes('=')) {
-    formattedExpression = `${answer}`;
+    formattedExpression = `Answer = ${answer}`;
   } else {
     // If it already has an equals sign, make sure the answer is correct
     const parts = formattedExpression.split('=');
-    formattedExpression = `${answer}`;
+    formattedExpression = `Answer = ${answer}`;
   }
   
   const latex = `\\(\\LARGE{${formattedExpression}}\\)`;
