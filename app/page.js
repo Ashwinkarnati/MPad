@@ -297,11 +297,11 @@ export default function Home() {
   // Ensure the expression doesn't already contain an equals sign
   let formattedExpression = expression;
   if (!formattedExpression.includes('=')) {
-    formattedExpression = `${formattedExpression} = ${answer}`;
+    formattedExpression = `${answer}`;
   } else {
     // If it already has an equals sign, make sure the answer is correct
     const parts = formattedExpression.split('=');
-    formattedExpression = `${parts[0].trim()} = ${answer}`;
+    formattedExpression = `${answer}`;
   }
   
   const latex = `\\(\\LARGE{${formattedExpression}}\\)`;
@@ -436,9 +436,10 @@ export default function Home() {
   };
 
   const runRoute = async () => {
-    const canvas = canvasRef.current;
+  const canvas = canvasRef.current;
 
-    if (canvas) {
+  if (canvas) {
+    try {
       saveCanvasState();
 
       const response = await axios({
@@ -452,6 +453,12 @@ export default function Home() {
 
       const resp = await response.data;
       console.log("Response", resp);
+      
+      if (resp.error) {
+        alert("Error: " + resp.error + "\nPlease try again later.");
+        return;
+      }
+
       resp.data.forEach((data) => {
         if (data.assign === true) {
           setDictOfVars({
@@ -497,8 +504,12 @@ export default function Home() {
           });
         }, 1000);
       });
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Please try again after some time.");
     }
-  };
+  }
+};
 
   const handleDragEnd = (event) => {
     const { active, delta } = event;
@@ -705,14 +716,14 @@ export default function Home() {
           }}
         />
         <Link href={'/how-to-use'}>
-        <Button className='bg-green-600'>
+        <Button className='bg-green-600 cursor-pointer'>
           How to Use?
         </Button>
         </Link>
           <h1 className="text-black">🤖 MPad - AI Math Solver</h1>
         <Button
           onClick={runRoute}
-          className="ml-auto bg-blue-600 hover:bg-blue-700 text-white"
+          className="ml-auto cursor-pointer bg-blue-600 hover:bg-blue-700 text-white"
         >
           Calculate
         </Button>
