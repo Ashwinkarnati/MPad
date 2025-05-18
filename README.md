@@ -3,13 +3,13 @@
 
 An intelligent web application that analyze, interpret, and solve handwritten mathematical equations. Key features include:
 
-1.Image Processing
+1. Image Processing
 
-2.AI-Powered Computation
+2. AI-Powered Computation
 
-3.Interactive Digital Workspace
+3. Interactive Digital Workspace
 
-4.Smart Calculation Engine
+4. Smart Calculation Engine
 
 ---
 
